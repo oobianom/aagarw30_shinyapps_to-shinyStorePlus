@@ -2,7 +2,7 @@ library(shiny)
 library(ggplot2)
 library(grid)
 library(dplyr)
-
+library(shinyStorePlus)
 
 
 #import data
