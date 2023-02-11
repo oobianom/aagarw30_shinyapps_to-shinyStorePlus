@@ -1,5 +1,9 @@
 library(shiny)
+library(shinyStorePlus)
+
+
 shinyUI(fluidPage(
+  initStore(),
   headerPanel("Shiny App Example with Video and Image"),
 
   sidebarLayout(
