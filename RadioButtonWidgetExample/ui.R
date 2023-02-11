@@ -1,8 +1,9 @@
-
 # Load the shiny package
 library(shiny)
+library(shinyStorePlus)
 # Define UI for the shiny application here
 shinyUI(fluidPage(
+  initStore(),
   # fluid pages scale their components in realtime to fill all available browser width.
   # Header Panel : Create a header panel containing an application title.
   headerPanel(title = "Demostration of shiny widgets"),
