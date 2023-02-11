@@ -1,8 +1,8 @@
 library(shiny)
-shinyServer(function(input, output) {
+shinyServer(function(input, output,session) {
   output$txt1 <- renderText({
     paste("My first name is: ", input$text1)
-    
+
   })
   output$txt2 <- renderText({
     # input from the action button from ui.R
@@ -13,6 +13,10 @@ shinyServer(function(input, output) {
     # isolate(paste("My last name is :", input$text2))
     paste("My last name is :", input$text2)
   })
-  
+
+  # Include at the bottom
+  appid = "applicati4on501"
+  setupStorage(appId = appid,inputs = TRUE)
+
 })
 

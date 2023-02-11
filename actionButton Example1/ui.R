@@ -1,5 +1,8 @@
 library(shiny)
+library(shinyStorePlus)
+
 shinyUI(fluidPage(
+  initStore(),
   titlePanel("A very simple demonstration of actionButton and isolate in shiny"),
   sidebarLayout(
     sidebarPanel(
