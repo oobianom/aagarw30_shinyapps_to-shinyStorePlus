@@ -1,8 +1,9 @@
 library(shiny)
-
+library(shinyStorePlus)
 
 shinyUI(
   fluidPage(
+    initStore(),
     titlePanel(title = h4('Demonstraion of renderplot', align='center')),
     sidebarLayout(
       sidebarPanel(
@@ -13,13 +14,13 @@ shinyUI(
         radioButtons('color', 'Color of the bins', choices = c('Green', 'Red', 'Blue'), selected = 'Green'),
         br(),
         radioButtons('type', 'Choose the type', choices = list('png', 'pdf'), selected = 'png')
-        
+
       ),
       mainPanel(
         plotOutput("myhist"),
         downloadButton('down', 'Download the Plot')
-        
-        
+
+
       )
     )
   )

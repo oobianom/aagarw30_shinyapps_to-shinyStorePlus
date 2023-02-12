@@ -1,14 +1,14 @@
-shinyServer(function(input, output){
-  
+shinyServer(function(input, output,session){
+
   colm = reactive({
     as.numeric(input$var)
-  }) 
+  })
   output$myhist = renderPlot(
     {
       hist(iris[,colm()], breaks = seq(0,max(iris[,colm()], l= input$bins+1)),col =input$color, main ="Histogram of irish dataset", xlab = names(iris[colm()]))
     }
   )
-  
+
   output$down <- downloadHandler(
     filename =  function() {
       paste("iris", input$type, sep=".") # replace input$var3 by input$type ty Abi
@@ -21,10 +21,12 @@ shinyServer(function(input, output){
         pdf(file) # open the pdf device
       hist(colm()) # draw the plot
       dev.off()  # turn the device off
-      
-    } 
+
+    }
   )
-  
-  
-  
-}) 
+
+  # Include at the bottom
+  appid = "appl13"
+  setupStorage(appId = appid, inputs = TRUE)
+
+})
