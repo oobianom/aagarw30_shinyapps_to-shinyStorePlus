@@ -1,5 +1,7 @@
 library(shiny)
+library(shinyStorePlus)
 shinyUI(fluidPage(
+  initStore(),
   titlePanel("Demonstration of submitButton() in shiny"),
   sidebarLayout(
     sidebarPanel(
