@@ -1,10 +1,10 @@
 library(shiny)
 library(ggplot2)
-
+library(shinyStorePlus)
 dataset <- diamonds
 
 shinyUI(fluidPage(
-  
+  initStore(),
   titlePanel(title = "Diamond Explorer"),
   h4("Demo Grid layout in R Shiny. Widgets into different rows and columns. Introducing fluidRow() & column() functions "),
   h5("The first parameter to the column() function is it's width (out of a total of 12 columns).
@@ -19,9 +19,9 @@ Each unit of offset increases the left-margin of a column by a whole column."),
   fluidRow(
     # column allocation for widgets
     column(4,
-           
-           sliderInput('sampleSize', 'Sample Size', 
-                       min=1, max=nrow(dataset), value=min(1000, nrow(dataset)), 
+
+           sliderInput('sampleSize', 'Sample Size',
+                       min=1, max=nrow(dataset), value=min(1000, nrow(dataset)),
                        step=500, round=0),
            br(),
            checkboxInput('jitter', 'Jitter'),
