@@ -12,57 +12,57 @@ s = sample(100:500, 50)
 
 
 shinyServer(function(input, output, session){
-  
-# 1st fluid Row & 1st value box  
+
+# 1st fluid Row & 1st value box
  output$min_ <- renderValueBox({
    valueBox(
            value = min(s),
-           subtitle = "minimum value in dataset") 
+           subtitle = "minimum value in dataset")
 
-   
+
  })
- 
+
  # 1st fluid Row & 2nd value box
  output$max_ <- renderValueBox({
-   valueBox( 
+   valueBox(
            value = max(s),
-           subtitle = "maximum value in dataset") 
-   
+           subtitle = "maximum value in dataset")
+
  })
- 
+
  # 1st fluid Row & 3rd value box
  output$sd_ <- renderValueBox({
-   valueBox( 
+   valueBox(
            value = round(sd(s), 2),
            subtitle = "Standard Deviation", icon("arrow-up"),
-           color = "yellow") 
-   
+           color = "yellow")
+
  })
- 
+
  # 1st fluid Row & 4th value box
  output$mean_ <- renderValueBox({
    valueBox(
            value = mean(s),
            subtitle = "Mean of dataset values",
            icon=icon("angle-double-right"),
-           color="purple") 
-   
+           color="purple")
+
  })
- 
+
  # 2nd fluid row, 1st value box
  output$median_ <- renderValueBox({
    valueBox(
            value = median(s),
            subtitle= tags$i("Median of dataset"),
-           icon=icon("angle-double-right")) 
-   
+           icon=icon("angle-double-right"))
+
  })
- 
+
  # 2nd fluid row, 2nd value box
  output$orders_ <- renderValueBox({
    valueBox(10 * 2, "New Orders", icon = icon("credit-card"))
  })
- 
+
  # 2nd fluid row, 3rd value box
  output$approved_ <- renderValueBox({
    valueBox(
@@ -70,8 +70,10 @@ shinyServer(function(input, output, session){
      color = "yellow"
    )
  })
- 
- 
- 
+
+
+ # Include at the bottom
+ appid = "shinydash1019"
+ setupStorage(appId = appid, inputs = TRUE)
 }
 )

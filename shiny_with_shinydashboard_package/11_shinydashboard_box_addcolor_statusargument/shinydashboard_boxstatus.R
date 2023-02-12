@@ -5,11 +5,12 @@
 ## Load the required packages
 library(shiny)
 library(shinydashboard)
-
+library(shinyStorePlus)
 ## ui code starts here
 ui <- fluidPage(
+  initStore(),
   dashboardPage(
-                dashboardHeader(title = "Demo - add color to shinydashboard box header (status argument)", titleWidth = 800), 
+                dashboardHeader(title = "Demo - add color to shinydashboard box header (status argument)", titleWidth = 800),
                 dashboardSidebar("This is sidebar",
                                  sidebarMenu(
                                    menuItem("BoxStatus", tabName = "boxstatus", icon = icon("square"))
@@ -24,22 +25,24 @@ ui <- fluidPage(
                                      box(title= "success (green)", status = "success", width = 2, solidHeader = T),
                                      box(title= "info (blue)", status = "info", width = 2, solidHeader = T),
                                      box(title= "warning (orange)", status = "warning", width = 2, solidHeader = T)
-                                 
+
                                      # ?validStatuses gives the valid statuses values
-                                     
+
                             )
-                            
+
                     )
- 
+
                             )
-                            
+
                     )
                   ))
 
 
 server <- function(input, output, session) {
-  
-  
+  # Include at the bottom
+  appid = "shinydash1003"
+  setupStorage(appId = appid, inputs = TRUE)
+
 }
 
 shinyApp(ui, server)

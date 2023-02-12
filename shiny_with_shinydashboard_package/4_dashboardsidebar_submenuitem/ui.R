@@ -3,7 +3,7 @@
 # load the required packages
 library(shiny)
 library(shinydashboard)
-
+library(shinyStorePlus)
 shinyUI(
   dashboardPage(
     dashboardHeader(title = "Demo shinydashboard package - add sub menu items to sidebar - an example", titleWidth = 800),
@@ -11,7 +11,7 @@ shinyUI(
     sidebarMenu(id = 'sidebarmenu',
                   # first menu item
                   menuItem("Dashboard", tabName = "Dashboard", icon = icon("dashboard")),
-                  
+
                   # second menu item with 2 sub menus
                   menuItem('chart',
                                     icon = icon('line-chart'),
@@ -23,9 +23,10 @@ shinyUI(
                                                 icon = icon('line-chart')
 
                   )))),
-    
-    
+
+
     dashboardBody(
+      initStore(),
         tabItems(
           tabItem("Dashboard", h4("this is the Dashboard tab page")),
           tabItem("chart1", h4("this is the chart1 tab page")),

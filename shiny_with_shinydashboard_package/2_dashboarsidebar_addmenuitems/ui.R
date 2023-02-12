@@ -7,12 +7,12 @@
 
 library(shiny)
 library(shinydashboard)
-
+library(shinyStorePlus)
 shinyUI(
   dashboardPage(
     dashboardHeader(title = "Demo shinydashboard package - create menu items", titleWidth = 600),
-    
-    
+
+
     dashboardSidebar(
       # add menu items to the sidebar
       # menu items are like tabs when clicked open up a page in tab item
@@ -23,10 +23,11 @@ shinyUI(
         # https://fontawesome.com/icons?d=gallery
       )
     ),
-    
-    
-    
-    dashboardBody()
+
+
+
+    dashboardBody(
+      initStore())
   )
 )
 

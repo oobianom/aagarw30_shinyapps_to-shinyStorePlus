@@ -3,6 +3,7 @@
 # load the required packages
 library(shiny)
 library(shinydashboard)
+library(shinyStorePlus)
 
 ## Add icon along with the title in the shinydashboard header
 title <- tags$a(href='https://www.google.com',
@@ -16,8 +17,9 @@ title <- tags$a(href='https://www.google.com',
 
 ## ui code starts here
 ui <- fluidPage(
+  initStore(),
   dashboardPage(
-                 dashboardHeader(title = title, titleWidth = 600), 
+                 dashboardHeader(title = title, titleWidth = 600),
                  dashboardSidebar(),
                  dashboardBody(
                    # add reference to CSS file
@@ -29,4 +31,8 @@ ui <- fluidPage(
   )
 )
 
-shinyApp(ui, server = function(input, output, session) {})
+shinyApp(ui, server = function(input, output, session) {
+  # Include at the bottom
+  appid = "shinydash1007"
+  setupStorage(appId = appid, inputs = TRUE)
+})

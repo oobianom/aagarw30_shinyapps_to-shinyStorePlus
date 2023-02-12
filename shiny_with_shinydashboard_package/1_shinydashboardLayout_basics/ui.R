@@ -6,20 +6,21 @@
 # Load the required packages
 library(shiny)
 library(shinydashboard)
-
+library(shinyStorePlus)
 shinyUI(
   dashboardPage(
     dashboardHeader(title = "Demo shinydashboard package - This is header", titleWidth = 500),
-    # Add a title using the title argument 
+    # Add a title using the title argument
     # Change the width of title using the titlewidth argument
     # header can be disabled using the argument disable = TRUE
-    
-    
+
+
     dashboardSidebar("This is sidebar and can have sidebarmenu items", collapsed=TRUE),
     # sidebar can be hidden by using the argument collapsed=TRUE
-    
-    dashboardBody("This is body. Introducing shinydashboard package and demo of basic layout"
-                  
+
+    dashboardBody(
+      initStore(),"This is body. Introducing shinydashboard package and demo of basic layout"
+
     )
   )
 )

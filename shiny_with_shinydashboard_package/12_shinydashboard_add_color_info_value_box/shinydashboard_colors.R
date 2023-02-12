@@ -3,17 +3,19 @@
 
 library(shiny)
 library(shinydashboard)
+library(shinyStorePlus)
 
 ## ui code starts here
 ui <- fluidPage(
-  dashboardPage(skin = "red", 
-                dashboardHeader(title = "Demo - add color to shinydashboard box (color argument)", titleWidth = 600), 
+  initStore(),
+  dashboardPage(skin = "red",
+                dashboardHeader(title = "Demo - add color to shinydashboard box (color argument)", titleWidth = 600),
                 dashboardSidebar("This is sidebar",
                                  sidebarMenu(
-                                   
+
                                    menuItem("BoxColor (infoBox/valueBox)", tabName = "boxcolor", icon=icon("square", class="mystyle")),
                                    tags$style(".mystyle {color:yellow;}") # add yellow color to the icon
- 
+
                                  )
                 ),
                 dashboardBody(
@@ -26,8 +28,8 @@ ui <- fluidPage(
                               infoBox(title = "Yellow", value = "007", color =  "yellow", width = 3),
                               infoBox(title = "Aqua", value = "007", color = "aqua",width = 3),
                               infoBox(title = "Blue", value = "007", color = "blue" ,width = 3)
-                              
-                              
+
+
                             ),
                             # row with infoBoxes with icon background
                             fluidRow(
@@ -35,9 +37,9 @@ ui <- fluidPage(
                               infoBox(title = "Teal", value = "007", color =  "teal", width = 3),
                               infoBox(title = "Olive", value = "007", color = "olive",width = 3),
                               infoBox(title = "Lime", value = "007", color = "lime" ,width = 3)
-                              
-                              
-                              
+
+
+
                             ),
                             # row with infoBoxes with icon and content background
                             fluidRow(
@@ -45,24 +47,26 @@ ui <- fluidPage(
                               infoBox(title = "Maroon", value = "007", color =  "maroon", width = 3, fill=T),
                               infoBox(title = "black", value = "007", color = "black",width = 3, fill=T),
                               infoBox(title = "Fuchsia", value = "007", color = "fuchsia", width = 3, fill=T)
-                              
+
                             ),
                             ## row with valueBoxes
                             fluidRow(
                               valueBox(subtitle = "Orange", value = "007", color = "orange", width = 3),
                               valueBox(subtitle = "Light Blue", value = "007", color = "light-blue", width = 3),
                               valueBox(subtitle = "Green", value = "007", color = "green", width = 3)
-                              
+
                             )
-                            
+
                     )
                   ))
   )
 )
 
 server <- function(input, output, session) {
-  
-  
+  # Include at the bottom
+  appid = "shinydash1004"
+  setupStorage(appId = appid, inputs = TRUE)
+
 }
 
 shinyApp(ui, server)

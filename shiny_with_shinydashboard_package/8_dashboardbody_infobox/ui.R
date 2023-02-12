@@ -12,35 +12,36 @@
 ## Load the required packages
 library(shiny)
 library(shinydashboard)
-
+library(shinyStorePlus)
 
 shinyUI(
   dashboardPage(
     dashboardHeader(title = "Demo shinydashboard package - create & render infoBox", titleWidth = 800),
-    
+
     dashboardSidebar(
       sidebarMenu(
         menuItem("infoBox", tabName = "IB")
       )
     ),
-    
-    
+
+
     dashboardBody(
+      initStore(),
       # within tabitems(), define the pages for sidebar menu items
       tabItems(
         tabItem(tabName = "IB",
                 #  first fluid row with 4 infoBoxes of width 3 each
                 fluidRow(infoBoxOutput("min_", width = 3), infoBoxOutput("max_", width = 3), infoBoxOutput("sd_", width = 3), infoBoxOutput("mean_", width=3)),
-                
+
                 # second fluid row with one infoBox
                 fluidRow(infoBoxOutput("median_", width = 6)),
-                
+
                 # Third fluid row with one infoBox and inline CSS styling to adjust height and width
                 fluidRow(infoBoxOutput("inline"), tags$style("#inline {height:75px; line-height:75px; padding-top:0px; padding-bottom:0px; width:400px;}"))
-                
+
                 )
-          
-          
+
+
         )
       )
     )
