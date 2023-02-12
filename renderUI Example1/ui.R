@@ -1,10 +1,11 @@
 library(shiny)
-
+library(shinyStorePlus)
 shinyUI(fluidPage(
+  initStore(),
   titlePanel("Dynamic user interface - RenderUI"),
   sidebarLayout(
     sidebarPanel(
-      
+
       # select input with the list of datasets
       selectInput(inputId = "data1", label = "Select the Dataset of your choice", choices = c("iris","mtcars","trees")),
       br(),
@@ -19,6 +20,6 @@ shinyUI(fluidPage(
     mainPanel(
       plotOutput("p")
       )
-    
+
     )
  ))
