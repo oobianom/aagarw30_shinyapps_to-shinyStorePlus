@@ -1,6 +1,7 @@
 library(shiny)
-
+library(shinyStorePlus)
 shinyUI(fluidPage(
+  initStore(),
   titlePanel("Demostration of the selectInput UI widget in shiny"),
   sidebarLayout(
     sidebarPanel(

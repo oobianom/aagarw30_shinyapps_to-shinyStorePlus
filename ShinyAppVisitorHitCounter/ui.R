@@ -1,5 +1,7 @@
 library(shiny)
+library(shinyStorePlus)
 shinyUI(fluidPage(
+  initStore(),
   headerPanel("Shiny App Example with Video and Image"),
 
   sidebarLayout(
@@ -19,8 +21,8 @@ shinyUI(fluidPage(
       tags$style(".span12{font-style: oblique;border-style: solid}"),
       tags$style(".span4{border-style: solid}"),
       tags$style(".span8{border-style: solid}")
-      
-      
+
+
       ),
     mainPanel(
       uiOutput("tb")
@@ -29,6 +31,6 @@ shinyUI(fluidPage(
 #       tabsetPanel(tabPanel("Summary", verbatimTextOutput("sum")),
 #                   tabPanel("Data", tableOutput("table")))
       )
-    
+
     )
   ))
