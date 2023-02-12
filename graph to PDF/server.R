@@ -39,7 +39,7 @@ shinyServer(function(input,output,session)({
     }
   )
   # Include at the bottom
-  appid = "appy01"
+  appid = "appy02"
   setupStorage(appId = appid, inputs = TRUE)
 }))
 
