@@ -37,7 +37,7 @@ shinyServer(
     )
 
   # Include at the bottom
-  appid = "ap301"
+  appid = "ap321"
   setupStorage(appId = appid, inputs = TRUE)
   }
   )
