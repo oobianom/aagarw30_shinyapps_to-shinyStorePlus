@@ -43,8 +43,7 @@ server <- function(input, output, session) {
 
 
   })
-
-  # Include at the bottom
+  # Include at the bottom. !important
   appid = "sample7"
   setupStorage(appId = appid, inputs = TRUE)
 
