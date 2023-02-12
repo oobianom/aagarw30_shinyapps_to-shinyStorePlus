@@ -1,5 +1,7 @@
 library(shiny)
+library(shinyStorePlus)
 shinyUI(fluidPage(
+  initStore(),
   titlePanel(h4('Demonstration of file download using downloadbutton() and downloadHandler()', align="center")),
   sidebarLayout(
     sidebarPanel(
@@ -11,10 +13,10 @@ shinyUI(fluidPage(
       br(),
       helpText(" Click on the download button to download the dataset observations"),
       downloadButton('downloadData', 'Download')
-      
+
     ),
     mainPanel(
-      
+
       tableOutput('table')
     )
   )

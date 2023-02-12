@@ -1,5 +1,7 @@
 library(shiny)
+library(shinyStorePlus)
 shinyUI(fluidPage(
+  initStore(),
   titlePanel("Download base plot in Shiny - an example"),
   sidebarLayout(
    sidebarPanel(
@@ -12,5 +14,5 @@ shinyUI(fluidPage(
       downloadButton(outputId = "down", label = "Download the plot")
       )
     )
-  
+
   ))

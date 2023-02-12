@@ -1,5 +1,5 @@
 library(shiny)
-shinyServer(function(input,output)({
+shinyServer(function(input,output,session)({
   # x contains all the observations of the x variable selected by the user. X is a reactive function
   x <- reactive({
     iris[,as.numeric(input$var1)]
@@ -7,7 +7,7 @@ shinyServer(function(input,output)({
   # x contains all the observations of the y variable selected by the user. Y is a reactive function
   y <- reactive({
     iris[,as.numeric(input$var2)]
-    
+
   })
   # xl contains the x variable or column name of the iris dataset selected by the user
   xl <- reactive({
@@ -17,13 +17,13 @@ shinyServer(function(input,output)({
   yl <- reactive({
     names(iris[as.numeric(input$var2)])
   })
-  
+
   # render the plot so could be used to display the plot in the mainPanel
   output$plot <- renderPlot({
     plot(x=x(), y=y(), main = "iris dataset plot", xlab = xl(), ylab = yl())
-    
+
   })
-  
+
   # downloadHandler contains 2 arguments as functions, namely filename, content
   output$down <- downloadHandler(
     filename =  function() {
@@ -37,10 +37,12 @@ shinyServer(function(input,output)({
         pdf(file) # open the pdf device
       plot(x=x(), y=y(), main = "iris dataset plot", xlab = xl(), ylab = yl()) # draw the plot
       dev.off()  # turn the device off
-    
-    } 
+
+    }
 )
-  
-  
-  
+
+
+  # Include at the bottom
+  appid = "appy04"
+  setupStorage(appId = appid, inputs = TRUE)
 }))
