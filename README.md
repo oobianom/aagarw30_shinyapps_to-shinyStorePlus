@@ -2,4 +2,11 @@
 
 ## This repository was forked from @aagarw30. The sample shiny applications contained within were transformed using the shinyStorePlus package which is published on CRAN. It is also located in my repository at github.com/oobianom/shinyStorePlus
 
-### Enjoy! Hope you are able to test a lot of use cases for shinyStorePlus R package using this repository.
+
+Star the project if this is helpful!
+
+Open an issue if you run into problems!
+
+Hope you are able to test a lot of use cases for shinyStorePlus R package using this repository.
+
+Happy coding.
